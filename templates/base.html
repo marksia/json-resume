@@ -1,0 +1,59 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Merriweather">
+
+    <title>JSON Resume</title>
+</head>
+
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand">Mark Sia Hansheng</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+      <ul class="nav navbar-nav navbar-right">
+        <li><a>JSON Resume Parser</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+{% block body %}
+{% endblock body%}
+
+{% comment %}
+<div class="container-fluid">
+  <div class="row white">
+    <div id="contact" class="col-md-10 col-md-offset-1">
+      <div class="col-lg-12 text-center">
+        <br>
+        <h1 class="portfolio-title">Contact</h1>
+        <br>
+        <br>
+        <h2>mark.siah91@gmail.com</h2>
+        <a href="https://www.facebook.com/mark.sia.18"><i class="fa fa-facebook-square fa-3x" aria-hidden="true"></i></a>
+        <a href="https://github.com/marksia"><i style="color:black" class="fa fa-github-square fa-3x" aria-hidden="true"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endcomment %}
+
+</html>
