@@ -1,5 +1,6 @@
 import json
 
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 from django.views.generic import TemplateView
@@ -35,6 +36,12 @@ class JsonUploaderView(FormView):
 
 class JSONProfileView(TemplateView):
     template_name = 'profile.html'
+
+    def dispatch(self, request, *args, **kwargs):
+        if self.request.session.get("json_data") is not None:
+            return super(JSONProfileView, self).dispatch(request, *args, **kwargs)
+        else:
+            return HttpResponseRedirect(reverse("json_uploader:index"))
 
     def get_context_data(self, **kwargs):
         context = super(JSONProfileView, self).get_context_data(**kwargs)

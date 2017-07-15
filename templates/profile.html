@@ -1,1 +1,94 @@
-{{ json_data.name }}
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container">
+
+  <div class="col-md-12 mt-20">
+  </div>
+<div class="row">
+    <div class="col-md-6">
+     <h2>{{ json_data.name }}</h2>
+     <p>
+      {{ json_data.address.line1 }}<br>
+      {{ json_data.address.postcode }}<br>
+      {{ json_data.address.city }}
+    </p>
+    <h4>Mobile: </h4> {{ json_data.mobile }}
+    <h4>Email:</h4> {{ json_data.email }}
+    <h4>Github: </h4> {{ json_data.github }}
+  </div>
+  <div class="col-md-6">
+    <div class="text-right">
+    <img src="{{ json_data.image }}" class="mt-40" width="150px">
+  </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mt-40">
+    <h2>Education</h2>
+    <hr>
+        <h3>{{ json_data.education.title }}<span class="pull-right">{{ json_data.education.duration }}</span></h3>
+
+        <p>
+          {{ json_data.education.description }}<br>
+        </p>
+
+        <br>
+
+        <ul class="unordered-list">
+          {% for point in json_data.education.points %}
+            <li>{{ point }}</li>
+          {% endfor %}
+        </ul>
+
+        <br><br>
+
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mt-40">
+    <h2>Experience</h2>
+    <hr>
+    {% with experience_list=json_data.experience %}
+      {% for experience in experience_list %}
+        <h3>{{ experience.company }} <span class="pull-right">{{ experience.duration }}</span></h3>
+        {% for desc in experience.description %}
+        <p>{{ desc }}</p>
+        {% endfor %}
+
+        <ul class="unordered-list">
+          {% for point in experience.points %}
+            <li>{{ point }}</li>
+          {% endfor %}
+        </ul>
+
+        <br><br>
+      {% endfor %}
+    {% endwith %}
+  </div>
+
+</div>
+
+<div class="row">
+  <div class="col-md-12 mt-40">
+    <h2>Additional Information</h2>
+    <hr>
+
+        <ul class="unordered-list">
+          {% for point in json_data.additional_information %}
+            <li>{{ point }}</li>
+          {% endfor %}
+        </ul>
+
+        <br><br>
+
+  </div>
+</div>
+
+
+
+</div>
+
+{% endblock %}
