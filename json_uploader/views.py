@@ -46,5 +46,5 @@ class JSONProfileView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(JSONProfileView, self).get_context_data(**kwargs)
         context["json_data"] = self.request.session["json_data"]
-        # del self.request.session["json_data"]
+        del self.request.session["json_data"]
         return context
