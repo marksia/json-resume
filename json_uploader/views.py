@@ -4,6 +4,8 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 from django.views.generic import TemplateView
+from django.contrib import messages
+
 from django.views.generic.edit import FormView
 
 from .forms import JSONUploaderForm
@@ -19,13 +21,10 @@ class JsonUploaderView(FormView):
     def form_valid(self, form):
         # This method is called when valid form data has been POSTed.
         # It should return an HttpResponse.
-        print (type(form.cleaned_data["file"]))
 
         file = form.cleaned_data["file"]
-        json_data = json.loads(file.read().decode("utf-8"))
 
-        print (json_data)
-        print (type(json_data))
+        json_data = json.loads(file.read().decode("utf-8"))
 
         self.request.session["json_data"] = json_data
         return super(JsonUploaderView, self).form_valid(form)

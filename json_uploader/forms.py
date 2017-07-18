@@ -1,10 +1,10 @@
+import json
+
 from django import forms
 
 
-
-
 class JSONUploaderForm(forms.Form):
-    file = forms.FileField(label='')
+    file = forms.FileField(label='', widget=forms.FileInput(attrs={'accept':'.json'}))
 
     def __init__(self, *args, **kwargs):
         super(JSONUploaderForm, self).__init__(*args, **kwargs)
