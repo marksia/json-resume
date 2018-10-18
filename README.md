@@ -1,7 +1,5 @@
 # json-resume
 
-## Demo available at [http://128.199.79.98/]
-
 ## Copy the following json formatted data and save it as .json
 
 ```
